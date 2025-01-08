@@ -1,0 +1,21 @@
+{
+  "name": "magnoli-types",
+  "version": "1.1.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.mjs",
+  "scripts": {
+    "build": "tsup"
+  },
+  "keywords": [],
+  "author": "Artem Zakharov",
+  "license": "MIT",
+  "devDependencies": {
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "zod": "^3.24.1"
+  }
+}
