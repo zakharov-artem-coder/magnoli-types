@@ -33,3 +33,6 @@ logs/
 
 # Optional eslint cache
 .eslintcache 
+
+done.txt
+.gitignore

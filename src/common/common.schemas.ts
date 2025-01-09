@@ -56,8 +56,8 @@ export const SortQuerySchema = z.object({
 // Common base fields that most entities have
 export const BaseEntitySchema = z.object({
   id: z.string(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
 });
 
 // Common customer reference
