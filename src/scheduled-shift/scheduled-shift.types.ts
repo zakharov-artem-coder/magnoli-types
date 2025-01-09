@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { ApiResponse } from "../common";
 import {
   ScheduledShiftSchema,
   ScheduledShiftResponseSchema,
@@ -56,12 +55,6 @@ export type ListScheduledShiftsQuery = z.infer<
  * Types for API responses
  */
 
-/** Single Item Response Types */
-export type GetScheduledShiftByIdResponse = ApiResponse<ScheduledShiftResponse>;
-export type CreateScheduledShiftResponse = ApiResponse<ScheduledShiftResponse>;
-export type UpdateScheduledShiftResponse = ApiResponse<ScheduledShiftResponse>;
-export type DeleteScheduledShiftResponse = ApiResponse<{ id: string }>;
-
 /** List Response Types */
 export type ListScheduledShiftsResponseData = {
   items: ScheduledShiftResponse[];
@@ -70,6 +63,3 @@ export type ListScheduledShiftsResponseData = {
   limit: number;
   totalPages: number;
 };
-
-export type ListScheduledShiftsResponse =
-  ApiResponse<ListScheduledShiftsResponseData>;

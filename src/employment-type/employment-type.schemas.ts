@@ -1,6 +1,5 @@
 import { z } from "zod";
 import {
-  ApiResponseSchema,
   PaginationQuerySchema,
   SearchQuerySchema,
   BaseEntitySchema,
@@ -56,34 +55,3 @@ export const ListEmploymentTypesQuerySchema =
 // ============================================================================
 // Response Schemas
 // ============================================================================
-
-/**
- * Base Response Schema
- * @description Core response structure for employment type data
- */
-export const EmploymentTypeResponseSchema = EmploymentTypeSchema;
-
-/**
- * API Response Wrappers
- * @description Schemas wrapped with API response structure
- */
-export const ListEmploymentTypesResponseSchema = ApiResponseSchema(
-  z.object({
-    items: z.array(EmploymentTypeResponseSchema),
-    ...PaginationResponseFieldsSchema.shape,
-  })
-);
-
-export const CreateEmploymentTypeResponseSchema = ApiResponseSchema(
-  EmploymentTypeResponseSchema
-);
-
-export const UpdateEmploymentTypeResponseSchema = ApiResponseSchema(
-  EmploymentTypeResponseSchema
-);
-
-export const DeleteEmploymentTypeResponseSchema = ApiResponseSchema(
-  z.object({
-    id: z.string(),
-  })
-);

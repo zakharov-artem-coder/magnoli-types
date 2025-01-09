@@ -1,6 +1,5 @@
 import { z } from "zod";
 import {
-  ApiResponseSchema,
   PaginationQuerySchema,
   SearchQuerySchema,
   BaseEntitySchema,
@@ -86,32 +85,3 @@ export const ScheduledShiftResponseSchema = ScheduledShiftSchema.extend({
   location: LocationFieldsSchema.shape.location,
   businessSegment: BusinessSegmentFieldsSchema.shape.businessSegment,
 });
-
-/**
- * API Response Wrappers
- * @description Schemas wrapping responses in standard API format
- */
-export const GetScheduledShiftByIdResponseSchema = ApiResponseSchema(
-  ScheduledShiftResponseSchema
-);
-
-export const ListScheduledShiftsResponseSchema = ApiResponseSchema(
-  z.object({
-    items: z.array(ScheduledShiftResponseSchema),
-    ...PaginationResponseFieldsSchema.shape,
-  })
-);
-
-export const CreateScheduledShiftResponseSchema = ApiResponseSchema(
-  ScheduledShiftResponseSchema
-);
-
-export const UpdateScheduledShiftResponseSchema = ApiResponseSchema(
-  ScheduledShiftResponseSchema
-);
-
-export const DeleteScheduledShiftResponseSchema = ApiResponseSchema(
-  z.object({
-    id: z.string(),
-  })
-);

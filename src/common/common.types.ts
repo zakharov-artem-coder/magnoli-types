@@ -1,29 +1,11 @@
 import { z } from "zod";
+import { ApiErrorResponseSchema } from "./common.schemas";
 
 // Utility Types
 export type Nullable<T> = T | null;
 export type Optional<T> = T | undefined;
 
-// API Types
-export type ApiResponse<T> = {
-  success: boolean;
-  data: Nullable<T>;
-  message: string;
-  error?: {
-    code: string | number;
-    details?: unknown;
-  };
-  metadata?: {
-    timestamp: string;
-    requestId?: string;
-    pagination?: {
-      page: number;
-      limit: number;
-      total: number;
-      hasMore: boolean;
-    };
-  };
-};
+export type ApiErrorResponse = z.infer<typeof ApiErrorResponseSchema>;
 
 // Common Query Types
 export type PaginationQuery = {

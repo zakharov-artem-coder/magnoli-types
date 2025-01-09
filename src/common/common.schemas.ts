@@ -2,32 +2,11 @@ import { z } from "zod";
 
 // ============================ API Schemas ============================
 // Base API Response Schema
-export const ApiResponseSchema = <T extends z.ZodType>(dataSchema: T) =>
-  z.object({
-    success: z.boolean(),
-    data: dataSchema.nullable(),
-    message: z.string(),
-    error: z
-      .object({
-        code: z.union([z.string(), z.number()]),
-        details: z.unknown().optional(),
-      })
-      .optional(),
-    metadata: z
-      .object({
-        timestamp: z.string(),
-        requestId: z.string().optional(),
-        pagination: z
-          .object({
-            page: z.number(),
-            limit: z.number(),
-            total: z.number(),
-            hasMore: z.boolean(),
-          })
-          .optional(),
-      })
-      .optional(),
-  });
+
+export const ApiErrorResponseSchema = z.object({
+  message: z.string(),
+  error: z.unknown(),
+});
 
 // Common pagination query schema
 export const PaginationQuerySchema = z.object({
@@ -211,14 +190,14 @@ export const PaginationResponseFieldsSchema = z.object({
 
 // Common business segment fields
 export const BusinessSegmentFieldsSchema = z.object({
-  businessSegmentId: z.string().nullable(),
-  businessSegment: BusinessSegmentReferenceSchema,
+  businessSegmentId: z.string().nullable().optional(),
+  businessSegment: BusinessSegmentReferenceSchema.optional(),
 });
 
 // Common customer fields
 export const CustomerFieldsSchema = z.object({
   customerId: z.string(),
-  customer: CustomerReferenceSchema,
+  customer: CustomerReferenceSchema.optional(),
 });
 
 // Common location fields

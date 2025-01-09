@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { ApiResponse } from "../common";
 import {
   MagnoliUserSchema,
   MagnoliUserResponseSchema,
@@ -44,18 +43,6 @@ export type DeleteMagnoliUserRequest = z.infer<typeof DeleteMagnoliUserSchema>;
  */
 export type ListMagnoliUsersQuery = z.infer<typeof ListMagnoliUsersQuerySchema>;
 
-// ============================================================================
-// Response Types
-// ============================================================================
-/**
- * @section Single Item Response Types
- * Types for individual Magnoli User operations
- */
-export type GetMagnoliUserByIdResponse = ApiResponse<MagnoliUserResponse>;
-export type CreateMagnoliUserResponse = ApiResponse<MagnoliUserResponse>;
-export type UpdateMagnoliUserResponse = ApiResponse<MagnoliUserResponse>;
-export type DeleteMagnoliUserResponse = ApiResponse<{ id: string }>;
-
 /**
  * @section List Response Types
  * Types for handling multiple Magnoli Users
@@ -67,6 +54,3 @@ export type ListMagnoliUsersResponseData = {
   limit: number;
   totalPages: number;
 };
-
-export type ListMagnoliUsersResponse =
-  ApiResponse<ListMagnoliUsersResponseData>;

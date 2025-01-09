@@ -1,6 +1,5 @@
 import { z } from "zod";
 import {
-  ApiResponseSchema,
   PaginationQuerySchema,
   SearchQuerySchema,
   BaseEntitySchema,

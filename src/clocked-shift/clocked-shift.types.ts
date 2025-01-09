@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { ApiResponse } from "../common";
 import {
   ClockedShiftSchema,
   ClockedShiftResponseSchema,
@@ -66,10 +65,6 @@ export type ListClockedShiftsQuery = z.infer<
  * Single Item Response Types
  * Types for individual clocked shift operations
  */
-export type GetClockedShiftByIdResponse = ApiResponse<ClockedShiftResponse>;
-export type CreateClockedShiftResponse = ApiResponse<ClockedShiftResponse>;
-export type UpdateClockedShiftResponse = ApiResponse<ClockedShiftResponse>;
-export type DeleteClockedShiftResponse = ApiResponse<{ id: string }>;
 
 /**
  * List Response Types
@@ -82,6 +77,3 @@ export type ListClockedShiftsResponseData = {
   limit: number;
   totalPages: number;
 };
-
-export type ListClockedShiftsResponse =
-  ApiResponse<ListClockedShiftsResponseData>;

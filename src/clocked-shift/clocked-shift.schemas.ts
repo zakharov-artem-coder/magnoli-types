@@ -1,6 +1,5 @@
 import { z } from "zod";
 import {
-  ApiResponseSchema,
   PaginationQuerySchema,
   SearchQuerySchema,
   BaseEntitySchema,
@@ -117,31 +116,3 @@ export const ClockedShiftResponseSchema = ClockedShiftSchema.extend({
   ),
   flags: z.array(ShiftFlagSchema),
 });
-
-/**
- * API Response Wrappers
- */
-export const GetClockedShiftByIdResponseSchema = ApiResponseSchema(
-  ClockedShiftResponseSchema
-);
-
-export const ListClockedShiftsResponseSchema = ApiResponseSchema(
-  z.object({
-    items: z.array(ClockedShiftResponseSchema),
-    ...PaginationResponseFieldsSchema.shape,
-  })
-);
-
-export const CreateClockedShiftResponseSchema = ApiResponseSchema(
-  ClockedShiftResponseSchema
-);
-
-export const UpdateClockedShiftResponseSchema = ApiResponseSchema(
-  ClockedShiftResponseSchema
-);
-
-export const DeleteClockedShiftResponseSchema = ApiResponseSchema(
-  z.object({
-    id: z.string(),
-  })
-);

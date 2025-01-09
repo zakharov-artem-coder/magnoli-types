@@ -1,9 +1,7 @@
+import { SearchQuerySchema } from "../common";
+import { CustomerFieldsSchema } from "../common";
 import { z } from "zod";
-import {
-  BaseEntitySchema,
-  CustomerFieldsSchema,
-  SearchQuerySchema,
-} from "../common/common.schemas";
+import { BaseEntitySchema } from "../common";
 
 export const DefaultBreakSchema = BaseEntitySchema.extend({
   name: z.string(),

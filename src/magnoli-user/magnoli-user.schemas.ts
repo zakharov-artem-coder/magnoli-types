@@ -1,6 +1,5 @@
 import { z } from "zod";
 import {
-  ApiResponseSchema,
   PaginationQuerySchema,
   SearchQuerySchema,
   BaseEntitySchema,
@@ -79,32 +78,3 @@ export const ListMagnoliUsersQuerySchema = PaginationQuerySchema.extend({
 export const MagnoliUserResponseSchema = MagnoliUserSchema.extend({
   customer: CustomerFieldsSchema.shape.customer,
 });
-
-/**
- * API Response Wrappers
- * Schemas wrapped with standard API response structure
- */
-export const GetMagnoliUserByIdResponseSchema = ApiResponseSchema(
-  MagnoliUserResponseSchema
-);
-
-export const ListMagnoliUsersResponseSchema = ApiResponseSchema(
-  z.object({
-    items: z.array(MagnoliUserResponseSchema),
-    ...PaginationResponseFieldsSchema.shape,
-  })
-);
-
-export const CreateMagnoliUserResponseSchema = ApiResponseSchema(
-  MagnoliUserResponseSchema
-);
-
-export const UpdateMagnoliUserResponseSchema = ApiResponseSchema(
-  MagnoliUserResponseSchema
-);
-
-export const DeleteMagnoliUserResponseSchema = ApiResponseSchema(
-  z.object({
-    id: z.string(),
-  })
-);

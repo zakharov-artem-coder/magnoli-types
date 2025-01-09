@@ -1,6 +1,6 @@
 {
   "name": "magnoli-types",
-  "version": "1.1.21",
+  "version": "1.1.28",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

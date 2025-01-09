@@ -1,8 +1,6 @@
 import { z } from "zod";
-import { ApiResponse } from "../common";
 import {
   EmploymentTypeSchema,
-  EmploymentTypeResponseSchema,
   CreateEmploymentTypeSchema,
   UpdateEmploymentTypeSchema,
   GetEmploymentTypeByIdSchema,
@@ -17,9 +15,6 @@ import {
  * Core employment type definitions
  */
 export type EmploymentType = z.infer<typeof EmploymentTypeSchema>;
-export type EmploymentTypeResponse = z.infer<
-  typeof EmploymentTypeResponseSchema
->;
 
 // ============================================================================
 // Request Types
@@ -51,28 +46,3 @@ export type DeleteEmploymentTypeRequest = z.infer<
 export type ListEmploymentTypesQuery = z.infer<
   typeof ListEmploymentTypesQuerySchema
 >;
-
-// ============================================================================
-// Response Types
-// ============================================================================
-
-/**
- * List Response Types
- */
-export type ListEmploymentTypesResponseData = {
-  items: EmploymentTypeResponse[];
-  total: number;
-  page: number;
-  limit: number;
-  totalPages: number;
-};
-
-/**
- * API Response Wrappers
- */
-export type ListEmploymentTypesResponse =
-  ApiResponse<ListEmploymentTypesResponseData>;
-export type CreateEmploymentTypeResponse = ApiResponse<EmploymentTypeResponse>;
-export type UpdateEmploymentTypeResponse = ApiResponse<EmploymentTypeResponse>;
-export type DeleteEmploymentTypeResponse = ApiResponse<{ id: string }>;
-export type GetEmploymentTypeByIdResponse = ApiResponse<EmploymentTypeResponse>;
